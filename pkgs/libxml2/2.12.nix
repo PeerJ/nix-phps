@@ -60,13 +60,13 @@ stdenv.mkDerivation (finalAttrs: {
     lib.optionals pythonSupport [
       python3
     ]
-    ++ lib.optionals (pythonSupport && python ? isPy2 && python.isPy2) [
+    ++ lib.optionals (pythonSupport && python3 ? isPy2 && python3.isPy2) [
       gettext
     ]
     ++ lib.optionals (pythonSupport && python3 ? isPy3 && python3.isPy3) [
       ncurses
     ]
-    ++ lib.optionals (stdenv.hostPlatform.isDarwin && pythonSupport && python ? isPy2 && python.isPy2) [
+    ++ lib.optionals (stdenv.hostPlatform.isDarwin && pythonSupport && python3 ? isPy2 && python3.isPy2) [
       libintl
     ];
 
@@ -107,7 +107,7 @@ stdenv.mkDerivation (finalAttrs: {
   '';
 
   preInstall = lib.optionalString pythonSupport ''
-    substituteInPlace python/libxml2mod.la --replace-fail "$dev/${python.sitePackages}" "$py/${python.sitePackages}"
+    substituteInPlace python3/libxml2mod.la --replace-fail "$dev/${python3.sitePackages}" "$py/${python3.sitePackages}"
   '';
 
   postFixup =
