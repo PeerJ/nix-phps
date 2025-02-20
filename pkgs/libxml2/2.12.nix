@@ -43,7 +43,6 @@ stdenv.mkDerivation (finalAttrs: {
   configureFlags = [
     "--exec-prefix=${placeholder "dev"}"
     (lib.withFeature icuSupport "icu")
-    "--without-python"
   ];
 
   enableParallelBuilding = true;
