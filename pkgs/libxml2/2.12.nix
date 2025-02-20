@@ -107,7 +107,7 @@ stdenv.mkDerivation (finalAttrs: {
   '';
 
   preInstall = lib.optionalString pythonSupport ''
-    substituteInPlace python3/libxml2mod.la --replace-fail "$dev/${python3.sitePackages}" "$py/${python3.sitePackages}"
+    substituteInPlace python/libxml2mod.la --replace-fail "$dev/${python3.sitePackages}" "$py/${python3.sitePackages}"
   '';
 
   postFixup =
