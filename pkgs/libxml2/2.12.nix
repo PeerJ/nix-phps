@@ -46,7 +46,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   src = fetchurl {
     url = "mirror://gnome/sources/libxml2/${lib.versions.majorMinor finalAttrs.version}/libxml2-${finalAttrs.version}.tar.xz";
-    hash = "sha256-dPwWMhejlkJX0745r5Q+CIYSY8QjH571tJa29tTHsrY=";
+    hash = "sha256-WZEttTarVqOZZInqApl2jHvP/lcWnwI15/liqR9INZA=";
   };
 
   strictDeps = true;
