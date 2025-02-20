@@ -5,7 +5,7 @@
   pkg-config,
   autoreconfHook,
   libintl,
-  python,
+  python3,
   gettext,
   ncurses,
   findXMLCatalogs,
