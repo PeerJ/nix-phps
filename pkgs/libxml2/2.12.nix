@@ -58,12 +58,12 @@ stdenv.mkDerivation (finalAttrs: {
 
   buildInputs =
     lib.optionals pythonSupport [
-      python
+      python3
     ]
     ++ lib.optionals (pythonSupport && python ? isPy2 && python.isPy2) [
       gettext
     ]
-    ++ lib.optionals (pythonSupport && python ? isPy3 && python.isPy3) [
+    ++ lib.optionals (pythonSupport && python3 ? isPy3 && python3.isPy3) [
       ncurses
     ]
     ++ lib.optionals (stdenv.hostPlatform.isDarwin && pythonSupport && python ? isPy2 && python.isPy2) [
