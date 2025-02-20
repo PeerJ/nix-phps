@@ -25,7 +25,7 @@
   enableShared ? !stdenv.hostPlatform.isMinGW && !stdenv.hostPlatform.isStatic,
   enableStatic ? !enableShared,
   gnome,
-  testers,
+  testers,PYTON
   enableHttp ? false,
 }:
 
@@ -87,12 +87,12 @@ stdenv.mkDerivation (finalAttrs: {
     (lib.enableFeature enableShared "shared")
     (lib.withFeature icuSupport "icu")
     (lib.withFeature pythonSupport "python")
-    (lib.optionalString pythonSupport "PYTHON=${python.pythonOnBuildForHost.interpreter}")
+    (lib.optionalString pythonSupport "PYTHON=${python3.pythonOnBuildForHost.interpreter}")
   ] ++ lib.optional enableHttp "--with-http";
 
   installFlags = lib.optionals pythonSupport [
-    "pythondir=\"${placeholder "py"}/${python.sitePackages}\""
-    "pyexecdir=\"${placeholder "py"}/${python.sitePackages}\""
+    "pythondir=\"${placeholder "py"}/${python3.sitePackages}\""
+    "pyexecdir=\"${placeholder "py"}/${python3.sitePackages}\""
   ];
 
   enableParallelBuilding = true;
