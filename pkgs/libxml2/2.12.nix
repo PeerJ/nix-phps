@@ -25,7 +25,7 @@
   enableShared ? !stdenv.hostPlatform.isMinGW && !stdenv.hostPlatform.isStatic,
   enableStatic ? !enableShared,
   gnome,
-  testers,PYTON
+  testers,
   enableHttp ? false,
 }:
 
